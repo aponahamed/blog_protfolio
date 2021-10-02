@@ -13,7 +13,7 @@
     <div class="row my-5">
       <div class="col-md-9 my-5 text-center">
         <div class="mt-4 ml-5 mb-5 text-left">
-          <h2 class="mb-4" style="font-size: 38px;color:#26A356;">Finding correlation between site performance</h2>
+          <h2 class="mb-4" style="font-size: 38px;color:#26A356;">{{$data->post_title}}</h2>
           <div>
             <span class="font-italic">
               <small>
@@ -21,9 +21,9 @@
                 <b>Date:</b> 12/12/21
               </small>
             </span><br>
-            <img class="img-fluid" src="{{asset('fontend/images/blog_01.jpg')}}" style="" alt="Card image cap">
+            <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$data->featuredImage)}}" style="" alt="Card image cap">
           </div>
-          <p class="font-italic">Finding correlation between site performance and business metrics was the key to driving the success of their optimization efforts.</p>
+          <p class="font-italic my-3">{{$data->post_description}}</p>
         </div>
 
          <div class="row mx-5">

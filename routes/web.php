@@ -7,6 +7,9 @@ use App\Http\Controllers\fontend\contactController;
 use App\Http\Controllers\fontend\protfolioController;
 use App\Http\Controllers\fontend\blogController;
 
+use App\Http\Controllers\backend\adminhomeController;
+use App\Http\Controllers\backend\adminblogController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +30,15 @@ Route::get('/about', [aboutController::class, 'about'])->name('about');
 Route::get('/contact', [contactController::class, 'contact'])->name('contact');
 Route::get('/protfolio', [protfolioController::class, 'protfolio'])->name('protfolio');
 Route::get('/blog', [blogController::class, 'blog'])->name('blog');
-Route::get('/viewpost', [blogController::class, 'viewpost'])->name('viewpost');
+Route::get('/viewpost/{id}', [blogController::class, 'viewpost'])->name('viewpost');
+
+
+Route::get('/admin', [adminhomeController::class, 'admin'])->name('admin');
+
+
+//insert blog post
+Route::get('/admin_blog', [adminblogController::class, 'adminblog'])->name('admin_blog');
+Route::post('/store', [adminblogController::class, 'store'])->name('blog_store');
+Route::get('/edit/{id}', [adminblogController::class, 'edit'])->name('blog_edit');
+Route::post('/update/{id}', [adminblogController::class, 'update'])->name('blog_update');
+Route::get('/delete/{id}', [adminblogController::class, 'delete'])->name('blog_delete');
