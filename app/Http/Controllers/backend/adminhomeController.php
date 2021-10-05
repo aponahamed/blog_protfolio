@@ -14,7 +14,8 @@ class adminhomeController extends Controller
      */
     public function admin()
     {
-        return view('backend.adminhome');
+        $data['title'] = 'Admin Panel';
+        return view('backend.adminhome',$data);
     }
 
     /**

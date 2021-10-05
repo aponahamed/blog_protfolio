@@ -1,4 +1,8 @@
 @extends('fontend.layouts.master')
+@section('title', $data->post_title)
+@section('meta_title', $data->meta_title)
+@section('meta_description', $data->meta_description)
+@section('meta_keywords', $data->meta_keywords)
 
 
 @section('content')

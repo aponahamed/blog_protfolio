@@ -21,6 +21,7 @@ class CreateAdminBlogsTable extends Migration
             $table->string('post_description');
             $table->string('meta_title');
             $table->string('meta_description');
+            $table->string('meta_keywords');
             $table->string('create_date');
             $table->string('featuredImage')->nullable();
             $table->timestamps();

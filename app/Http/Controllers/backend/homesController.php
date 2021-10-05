@@ -1,25 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\fontend;
+namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\adminBlog;
-use \Illuminate\Support\Str;
 
-class blogController extends Controller
+class homesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function blog()
+    public function adminHome()
     {
-        
-        $data = adminBlog::orderBy('id', 'desc')->paginate(3);
-        $recent_post = adminBlog::orderBy('id', 'desc')->paginate(2);
-        return view('fontend.blog',compact('data','recent_post'));
+        $data['title'] = 'Home Update';
+        return view('backend/home',$data);
     }
 
     /**
@@ -27,10 +23,9 @@ class blogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function viewpost($post_slug)
+    public function create()
     {
-        $data['data'] = adminBlog::where('post_slug', '=', $post_slug)->firstOrFail();
-        return view('fontend.viewpost',$data);
+        //
     }
 
     /**

@@ -3,10 +3,11 @@
   	<head>
     	<meta charset="utf-8">
     	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<title>Blog with Protfolio</title>
+    	<title>@yield('title')</title>
+		<link rel="shortcut icon" type="png" href="{{asset('A.png')}}"/>
     	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-    	<meta content="" name="keywords">
-    	<meta content="" name="description">
+    	<meta content="@yield('meta_keywords')" name="keywords">
+    	<meta content="@yield('meta_description')" name="description">
    		@include('fontend.layouts.partials.stylesheet')
   	</head>
   	<body>

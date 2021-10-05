@@ -9,10 +9,10 @@
     ==========-->
    <!--about or why-->
 
-   <div class="container-fluid">
-     <div class="row my-5">
-       <div class="col-md-9">
-          <div class="row my-4 ml-4">
+  <div class="container-fluid">
+    <div class="row my-5">
+      <div class="col-md-9">
+        <div class="row my-4 ml-4">
             <div class="col-md-12 my-5 text-left">
               <div class="mt-4 mx-4">
                 <h2 style="font-size: 50px;color:#26A356;">Our Blog Post</h2>
@@ -38,35 +38,25 @@
                   </div>
                   <div>
                     <p class="text-justify" style="font-size:14px;">
-                      {{Str::limit($value['post_description'],450)}}<a href="{{'viewpost/'.$value['id']}}" class="btn btn-sm" style="background-color:#26A356;color:#fff;">Read More</a >
+                      {{Str::limit($value['post_description'],450)}}<a href="{{'viewpost/'.$value['post_slug']}}" class="btn btn-sm" style="background-color:#26A356;color:#fff;">Read More</a >
                     </p>
                   </div>
                 </div>
               </div>
             </div>
             @endforeach
-            <nav aria-label="">
-                <ul class="pagination justify-content-end">
-                  <!-- <li class="page-item disabled">
-                    <span class="page-link" style="color:#26A356">Previous</span>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#" style="color:#26A356">1</a></li> -->
-                  <li class="page-item active"style="color:#fff;">
-                    <div class="float-left">
-                      {{$data->links()}}
-                    </div>
-                  </li>
-                    <!-- <li class="page-item"><a class="page-link" href="#" style="color:#26A356">2</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" style="color:#26A356">Next</a>
-                    </li> -->
-                  </ul>
-                </nav>
+
+           
            
           </div>
+          <div class="col-md-12 text-sm">
+          {{$data->links()}}
+          </div>
+          
+
        </div>
       
-              
+         
      
 
        <div class="col-md-3">
@@ -189,9 +179,9 @@
             </div>
 
           </div>
-       </div>
-     </div>
-   </div>
+      </div>
+    </div>
+  </div>
 
 
 @endsection

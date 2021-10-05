@@ -10,6 +10,14 @@ use App\Http\Controllers\fontend\blogController;
 use App\Http\Controllers\backend\adminhomeController;
 use App\Http\Controllers\backend\adminblogController;
 
+
+use App\Http\Controllers\backend\profileController;
+use App\Http\Controllers\backend\homesController;
+use App\Http\Controllers\backend\contactsController;
+use App\Http\Controllers\backend\protfoliosController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +38,7 @@ Route::get('/about', [aboutController::class, 'about'])->name('about');
 Route::get('/contact', [contactController::class, 'contact'])->name('contact');
 Route::get('/protfolio', [protfolioController::class, 'protfolio'])->name('protfolio');
 Route::get('/blog', [blogController::class, 'blog'])->name('blog');
-Route::get('/viewpost/{id}', [blogController::class, 'viewpost'])->name('viewpost');
+Route::get('/viewpost/{post_slug}', [blogController::class, 'viewpost'])->name('viewpost');
 
 
 Route::get('/admin', [adminhomeController::class, 'admin'])->name('admin');
@@ -38,7 +46,16 @@ Route::get('/admin', [adminhomeController::class, 'admin'])->name('admin');
 
 //insert blog post
 Route::get('/admin_blog', [adminblogController::class, 'adminblog'])->name('admin_blog');
+Route::get('/admin/blog/create', [adminblogController::class, 'blogcreate'])->name('blogcreate');
 Route::post('/store', [adminblogController::class, 'store'])->name('blog_store');
-Route::get('/edit/{id}', [adminblogController::class, 'edit'])->name('blog_edit');
-Route::post('/update/{id}', [adminblogController::class, 'update'])->name('blog_update');
-Route::get('/delete/{id}', [adminblogController::class, 'delete'])->name('blog_delete');
+Route::get('/edit/{post_slug}', [adminblogController::class, 'edit'])->name('blog_edit');
+Route::post('/update/{post_slug}', [adminblogController::class, 'update'])->name('blog_update');
+Route::get('/delete/{post_slug}', [adminblogController::class, 'delete'])->name('blog_delete');
+
+// Route::get('/slug', [adminblogController::class, 'slug']);
+
+//profile edit update 
+Route::get('admin/profile', [profileController::class, 'adminProfile'])->name('adminProfile');
+Route::get('admin/home', [homesController::class, 'adminHome'])->name('adminHome');
+Route::get('admin/contact', [contactsController::class, 'adminContact'])->name('adminContact');
+Route::get('admin/protfolio', [protfoliosController::class, 'adminProtfolio'])->name('adminProtfolio');

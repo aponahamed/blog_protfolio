@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 @include('backend.layouts.leftsidebar')
 
-@include('backend.layouts.partials.header')
+
 
 
 @yield('content')
