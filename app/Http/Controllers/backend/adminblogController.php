@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\adminBlog;
+use App\Models\category;
 use Illuminate\Support\Str;
 
 use Image;
@@ -30,6 +31,7 @@ class adminblogController extends Controller
      */
     public function blogcreate()
     {
+        $data['data'] = category::all();
         $data['title'] = 'Blog Post Create';
         return view('backend/blogcreate',$data);
     }
@@ -59,6 +61,8 @@ class adminblogController extends Controller
         $adminBlog->meta_description = $request->input('meta_description');
         $adminBlog->meta_keywords = $request->input('meta_keywords');
         $adminBlog->create_date = date('Y-m-d');
+        $adminBlog->category_title = $request->input('category_title');
+        $adminBlog->post_tag = $request->input('post_tag');
         if($request->hasfile('featuredImage')){
             $file = $request->file('featuredImage');
             $filename = time() . '.'. $file->getClientOriginalExtension();
@@ -89,8 +93,9 @@ class adminblogController extends Controller
      */
     public function edit($post_slug)
     {
-        $data['datas'] = adminblog::where('post_slug', '=', $post_slug)->firstOrFail();
+       
         $data['data'] = adminblog::where('post_slug', '=', $post_slug)->firstOrFail();
+        $data['data_c'] = category::all();
         $data['title'] = 'Blog Post Edit';
         return view('backend.blogedit',$data);
     }
@@ -112,6 +117,8 @@ class adminblogController extends Controller
         $adminBlog->meta_title = $request->input('meta_title');
         $adminBlog->meta_description = $request->input('meta_description');
         $adminBlog->meta_keywords = $request->input('meta_keywords');
+        $adminBlog->category_title = $request->input('category_title');
+        $adminBlog->post_tag = $request->input('post_tag');
         if($request->hasfile('featuredImage')){
             $destinition = "upload/post/featuredImage/".$adminBlog->featuredImage;
             if(File::exists($destinition))
@@ -124,8 +131,8 @@ class adminblogController extends Controller
             $adminBlog->featuredImage = $filename;
         }
         $adminBlog->update();
-
-        return view('backend.adminblog')->with('status','Blog Post Updated Successfully');
+        
+        return redirect()->back()->with('status','Blog Post Updated Successfully');
     }
 
     /**

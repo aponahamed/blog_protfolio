@@ -52,7 +52,7 @@
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="home.blade.php"><span class="color-b">Mr </span> Apon <span class="color-b">Ahamed</span></a>
+      <a class="navbar-brand text-brand" href="{{route('home')}}"><span class="color-b">Mr </span> Apon <span class="color-b">Ahamed</span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
         data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fa fa-search" aria-hidden="true"></span>

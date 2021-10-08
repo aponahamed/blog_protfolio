@@ -29,7 +29,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
+          <li class="nav-item ">
             <a href="#" class="nav-link active">
               <i class="nav-icon fa fa-wrench"></i>
               <p>
@@ -65,7 +65,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{route('admin_blog')}}" class="nav-link">
+            <a href="{{route('admin_blog')}}" class="nav-link active">
               <i class="nav-icon fas fa-blog"></i>
               <p>
                 Blog Post
@@ -83,6 +83,30 @@
                 <a href="{{route('admin_blog')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Blog Post</p>
+                </a>
+              </li>
+             
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin_blog')}}" class="nav-link active">
+              <i class="nav-icon fas fa-blog"></i>
+              <p>
+                Categories
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('category')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Insert Category</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('categoryView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Category</p>
                 </a>
               </li>
              

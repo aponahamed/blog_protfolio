@@ -64,21 +64,21 @@
        <div class="col-md-3 my-5">
           <p class="mt-4"><b>Category</b></p>
          <div>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Web Development</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">PHP</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">HTML Design</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Wordpress</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Laravel</a>
+            @foreach($category as $value)
+              <a class="btn btn-sm m-1" href="{{'/categoriesView/'.$value['category_title']}}" style="background-color:#26A356;color:#fff;">{{$value['category_title']}}</a>
+            @endforeach
          </div><hr>
 
 
           <p><b>Tags</b></p>
          <div>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Web Development</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">PHP</a>
+            @foreach($post_tag as $value)
+              <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">{{$value}}</a>
+            @endforeach
+            <!-- <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">PHP</a>
             <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">HTML Design</a>
             <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Wordpress</a>
-            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Laravel</a>
+            <a class="btn btn-sm m-1" href="#" style="background-color:#26A356;color:#fff;">Laravel</a> -->
          </div>
 
             <div class="col-md-12 mt-5">

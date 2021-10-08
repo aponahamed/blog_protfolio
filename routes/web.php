@@ -15,8 +15,7 @@ use App\Http\Controllers\backend\profileController;
 use App\Http\Controllers\backend\homesController;
 use App\Http\Controllers\backend\contactsController;
 use App\Http\Controllers\backend\protfoliosController;
-
-
+use App\Http\Controllers\backend\categoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +32,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
 Route::get('/home', [homeController::class, 'home'])->name('home');
 Route::get('/about', [aboutController::class, 'about'])->name('about');
 Route::get('/contact', [contactController::class, 'contact'])->name('contact');
@@ -41,7 +61,7 @@ Route::get('/blog', [blogController::class, 'blog'])->name('blog');
 Route::get('/viewpost/{post_slug}', [blogController::class, 'viewpost'])->name('viewpost');
 
 
-Route::get('/admin', [adminhomeController::class, 'admin'])->name('admin');
+Route::get('/admin', [adminhomeController::class, 'admin'])->middleware(['auth'])->name('admin');
 
 
 //insert blog post
@@ -59,3 +79,11 @@ Route::get('admin/profile', [profileController::class, 'adminProfile'])->name('a
 Route::get('admin/home', [homesController::class, 'adminHome'])->name('adminHome');
 Route::get('admin/contact', [contactsController::class, 'adminContact'])->name('adminContact');
 Route::get('admin/protfolio', [protfoliosController::class, 'adminProtfolio'])->name('adminProtfolio');
+
+//category 
+Route::get('admin/category', [categoryController::class, 'category'])->name('category');
+Route::get('admin/category/view', [categoryController::class, 'view'])->name('categoryView');
+Route::POST('admin/category/store', [categoryController::class, 'store'])->name('categoryStore');
+Route::POST('admin/category/update/{id}', [categoryController::class, 'update'])->name('categoryUpdate');
+Route::get('admin/category/updateView/{id}', [categoryController::class, 'updateView'])->name('updateView');
+Route::get('admin/category/delete/{id}', [categoryController::class, 'delete'])->name('categoryDelete');

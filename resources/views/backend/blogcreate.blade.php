@@ -59,6 +59,19 @@
                     <input type="text" name="meta_keywords" class="form-control" id="exampleInputPassword1">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputPassword1">Select Category</label>
+                    <select class="form-select form-control" name="category_title" aria-label="Default select example">
+                      <option selected>Please select One</option>
+                      @foreach($data as $value)
+                      <option value="{{$value['category_title']}}">{{$value['category_title']}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Make Tag For Your Post</label>
+                    <input type="text" name="post_tag" class="form-control" id="search_data" autocomplete="off">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleFormControlFile1">Featured Image</label>
                     <input type="file" class="form-control-file" id="exampleFormControlFile1" name="featuredImage">
                   </div>
@@ -108,4 +121,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
 @endsection

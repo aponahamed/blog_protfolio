@@ -62,6 +62,19 @@
                     <input type="text" name="meta_keywords" class="form-control" value="{{$data->meta_keywords}}">
                   </div>
                   <div class="form-group">
+                    <label for="exampleInputPassword1">Select Category</label>
+                    <select class="form-select form-control" name="category_title" aria-label="Default select example">
+                      <option value="{{$data->category_title}}" selected>{{$data->category_title}}</option>
+                      @foreach($data_c as $value)
+                      <option value="{{$value['category_title']}}">{{$value['category_title']}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Make Tag For Your Post</label>
+                    <input type="text" name="post_tag" class="form-control" id="search_data" autocomplete="off" value="{{$data->post_tag}}">
+                  </div>
+                  <div class="form-group">
                     <label for="exampleFormControlFile1">Featured Image</label>
                     <img src="{{asset('upload/post/featuredImage/'.$data->featuredImage)}}" alt="featuredImage" class="rounded-circle image-fluid" style="max-height:100px;">
                     <input type="file" class="form-control-file" name="featuredImage">

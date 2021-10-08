@@ -5,6 +5,7 @@ namespace App\Http\Controllers\fontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\adminBlog;
+use App\Models\category;
 use \Illuminate\Support\Str;
 
 class blogController extends Controller
@@ -16,10 +17,10 @@ class blogController extends Controller
      */
     public function blog()
     {
-        
-        $data = adminBlog::orderBy('id', 'desc')->paginate(3);
-        $recent_post = adminBlog::orderBy('id', 'desc')->paginate(2);
-        return view('fontend.blog',compact('data','recent_post'));
+        $data['category'] = category::all();
+        $data['data'] = adminBlog::orderBy('id', 'desc')->paginate(3);
+        $data['recent_post'] = adminBlog::orderBy('id', 'desc')->paginate(2);
+        return view('fontend.blog',$data);
     }
 
     /**
@@ -30,6 +31,11 @@ class blogController extends Controller
     public function viewpost($post_slug)
     {
         $data['data'] = adminBlog::where('post_slug', '=', $post_slug)->firstOrFail();
+        $data['category'] = category::all();
+        $myString = adminBlog::where('post_slug', '=', $post_slug)->firstOrFail();
+        $finalString = $myString->post_tag;
+        $myArray = explode(',', $finalString);
+        $data['post_tag'] = $myArray;
         return view('fontend.viewpost',$data);
     }
 
@@ -50,9 +56,12 @@ class blogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function categoriesView($category_title)
+    {   
+        $data['category'] = category::all();
+        $data['data'] = adminBlog::where('category_title', '=', $category_title)->orderBy('id', 'desc')->paginate(3);
+        $data['recent_post'] = adminBlog::orderBy('id', 'desc')->paginate(2);
+        return view('fontend/categoriesView',$data);
     }
 
     /**
