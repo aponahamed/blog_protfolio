@@ -42,7 +42,7 @@
                   <div class="form-group">
                     <label for="exampleInputEmail1">Category Title</label>
                     <input type="text" name="category_title" class="form-control" id="post_title">
-                    <input type="hidden" name="user_id" value="1">
+                    <input type="hidden" name="user_id">
                   </div>
                   <div>
                     <button type="submit" class="btn btn-primary">Submit</button>

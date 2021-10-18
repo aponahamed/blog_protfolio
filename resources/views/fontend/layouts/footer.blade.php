@@ -6,19 +6,19 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="index.php">Home</a>
+                <a href="{{route('home')}}">Home</a>
               </li>
               <li class="list-inline-item">
-                <a href="about.php">About</a>
+                <a href="{{route('about')}}">About</a>
               </li>
               <li class="list-inline-item">
-                <a href="contact.php">Contact</a>
+                <a href="{{route('contact')}}">Contact</a>
               </li>
               <li class="list-inline-item">
-                <a href="experience.php">Experienced</a>
+                <a href="{{route('protfolio')}}">Protfolio</a>
               </li>
               <li class="list-inline-item">
-                <a href="daffodil.php">Daffodil Familly</a>
+                <a href="{{route('blog')}}">Blog</a>
               </li>
             </ul>
           </nav>
@@ -56,8 +56,7 @@
           </div>
           <div class="copyright-footer">
             <p class="copyright color-text-a">
-              &copy; Copyright
-              <span class="color-a">Own Design Concept</span> All Rights Our.
+              <small>{{$General->footer_title}}</small>
             </p>
           </div>
         </div>
@@ -76,7 +75,7 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <div class="text-center">
-                <img src="image/apon.jpg" class="rounded-circle" style="height:60px;width:60px;">
+                <img src="{{asset('A.png')}}" class="rounded-circle" style="height:60px;width:60px;">
               </div>
             </div> 
             <div class="col-md-12 text-center">
@@ -85,22 +84,55 @@
               </div>
             </div>
             <div class="col-md-12">
-              <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+              <form method="POST" action="{{route('subscriber')}}" enctype="multipart/form-data">
+                @csrf
+
+                <div class="input-group input-group-lg my-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input type="text" name="name" placeholder="name" class="form-control form-control-lg">
+                </div>
+
+                <div class="input-group input-group-lg my-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                  <input type="email" name="email" placeholder="Email" class="form-control form-control-lg">
+                </div>
+
+                <div class="input-group input-group-lg">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-calendar"></i>
+                    </span>
+                  </div>
+                  <input type="date" name="date" class="form-control form-control-lg">
+                </div>
+
+                <div class="input-group input-group-lg my-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="fa fa-clock-o"></i>
+                    </span>
+                  </div>
+                  <input type="time" name="time" min="09:00" max="18:00"class="form-control form-control-lg" required>
+                </div>
+
+                <div class="input-group input-group-lg mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text text-center" style="background: ;height:100%;">
+                      <i class="fa fa-pencil" ></i>
+                    </span>
+                  </div>
+                  <textarea name="message" rows="4" style="height:100%;" class="form-control" cols="100"></textarea>
+                </div>
+                <input type="submit" class="btn btn-lg btn-block" style="color:#fff;background-color:#26A356;" value="submit">
+              </form>
             </div>
             </div> 
           </div>

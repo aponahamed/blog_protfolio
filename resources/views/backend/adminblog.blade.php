@@ -55,16 +55,16 @@
                         <td>{{$value['user_id']}}</td>
                         <!-- <td>{{$value['post_slug']}}</td> -->
                         <td>{{$value['post_title']}}</td>
-                        <td>{{Str::limit($value['post_description'],50)}}</td>
+                        <td>{{Str::limit(strip_tags($value['post_description']),50)}}</td>
                         <td>{{$value['meta_title']}}</td>
-                        <td>{{Str::limit($value['meta_description'],50)}}</td>
+                        <td>{{Str::limit(strip_tags($value['meta_description']),50)}}</td>
                         <td>
                           <img src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" alt="featuredImage" class="rounded-circle image-fluid" style="max-height:100px;max-width:100px;">
                         </td>
                         <td>
-                          <a class="btn btn-primary btn-sm" href="{{'viewpost/'.$value['post_slug']}}">View</a>
-                          <a class="btn btn-success btn-sm my-1" href="{{'edit/'.$value['post_slug']}}">Update</a>
-                          <a class="btn btn-danger btn-sm" href="{{'delete/'.$value['post_slug']}}">Delete</a>
+                          <a class="btn btn-primary btn-sm" href="{{'/viewpost/'.$value['post_slug']}}">View</a>
+                          <a class="btn btn-success btn-sm my-1" href="{{'/admin/blog/edit/'.$value['post_slug']}}">Update</a>
+                          <a class="btn btn-danger btn-sm" href="{{'/admin/blog/delete/'.$value['post_slug']}}">Delete</a>
                         </td>
                       </tr>
                     @endforeach

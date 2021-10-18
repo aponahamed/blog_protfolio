@@ -4,6 +4,11 @@ namespace App\Http\Controllers\fontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\homeView;
+use App\Models\personal;
+use App\Models\homeSkills;
+use App\Models\homeWorks;
+use App\Models\General;
 
 class homeController extends Controller
 {
@@ -14,7 +19,16 @@ class homeController extends Controller
      */
     public function home()
     {
-        return view('fontend.home');
+        $user_id = 1;
+
+
+        $data['title'] = "Personal Blog Protfolio";
+        $data['banner'] = homeView::where('user_id','=',$user_id)->firstOrFail();
+        $data['personal'] = personal::where('user_id','=',$user_id)->firstOrFail();
+        $data['General'] = General::where('user_id','=',$user_id)->firstOrFail();
+        $data['homeSkills'] = homeSkills::all();
+        $data['homeWorks'] = homeWorks::all();
+        return view('fontend.home',$data);
     }
 
     /**

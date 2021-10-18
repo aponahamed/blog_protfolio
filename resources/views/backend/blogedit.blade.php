@@ -36,7 +36,7 @@
                 <h5 class="m-0">Update Your blog Post</h5>
               </div>
               <div class="card-body">
-                <form action="{{url('update/'.$data->post_slug)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/admin/blog/update/'.$data->post_slug)}}" method="POST" enctype="multipart/form-data">
                   @csrf
 
                   <input type="hidden" name="user_id" class="form-control" value="{{$data->user_id}}">
@@ -47,7 +47,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Post Description</label>
-                    <textarea type="text" name="post_description" rows="5" class="form-control">{{$data->post_description}}</textarea>
+                    <textarea id="summernote" type="text" name="post_description" rows="5" class="form-control">{{$data->post_description}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Meta Title</label>

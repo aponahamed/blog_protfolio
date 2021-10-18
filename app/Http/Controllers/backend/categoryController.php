@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 use App\Models\category;
 use App\Models\adminBlog;
 use App\Models\DB;
+use App\Models\User;
+use App\Models\personal;
+use Illuminate\Support\Facades\Auth;
 
+use Image;
+use File;
 
 class categoryController extends Controller
 {
@@ -18,6 +23,8 @@ class categoryController extends Controller
      */
     public function category()
     {
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['title'] = "Category Add";
         return view('backend/category',$data);
     }
@@ -29,6 +36,8 @@ class categoryController extends Controller
      */
     public function view()
     {
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['data'] = category::all();
         $data['title'] = "Category View";
         return view('backend/categoryView',$data);
@@ -44,7 +53,7 @@ class categoryController extends Controller
     {
         $category = new category;
         $category->category_title = $request->input('category_title');
-        $category->user_id = $request->input('user_id');
+        $category->user_id = Auth::user()->id;
        
         $category->save();
 
@@ -59,6 +68,8 @@ class categoryController extends Controller
      */
     public function updateView($id)
     {
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['title'] = "Category Update";
         $data['data'] = category::find($id);
         return view('backend/categoryUpdateView',$data);
@@ -88,7 +99,7 @@ class categoryController extends Controller
         $category->category_title = $request->input('category_title');
         $category->user_id = $request->input('user_id');
         $category->update();
-        return redirect()->back()->with('status','Blog Post Updated Successfully');
+        return redirect()->back()->with('status','Category Updated Successfully');
     }
 
     /**
@@ -101,9 +112,15 @@ class categoryController extends Controller
     {
         
         $delete = category::find($id);
+        $name = $delete->category_title;
+        if($delete){
+            $adminBlog = adminBlog::where('category_title', '=', $name)->firstOrFail();
+            $adminBlog->category_title = 'Uncategories';
+            $adminBlog->update();
+        }
+
         $delete->delete();
         return redirect()->back()->with('delete','Category Deleted Successfully');
     }
-
 
 }

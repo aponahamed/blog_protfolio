@@ -44,61 +44,26 @@
             @endif
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Contact Element</h5>
+                  <div class="row">
+                    <div class="col-md-9">
+                      <h5 class="m-0">Contact Element</h5>
+                    </div>
+                    <div class="col-md-3 text-right">
+                      @if($contactBanner->contacts_banner_status == '0')
+                        <a href="{{'/admin/contact/hideShow/'.'contacts_banner_status'}}" class="btn btn-sm btn-danger px-3">Show</a>
+                      @elseif($contactBanner->contacts_banner_status == '1')
+                        <a href="{{'/admin/contact/hideShow/'.'contacts_banner_status'}}" class="btn btn-sm btn-primary px-3">Hide</a>
+                      @endif
+                    </div>
+                    <div class="col-md-12 my-3 font-italic">
+                      <p><b>Note:</b> My Contact Element Shocase Use the border-radius property to add rounded corners to an image. 50% will make the image circular.</p>
+                    </div>
+                    <div class="col-md-12 text-left">
+                      <a href="{{route('contactBanner')}}" class="btn btn-sm btn-primary px-4">Update</a>
+                    </div>
+                  </div>
               </div>
-              <div class="card-body">
-                <form action="{{route('blog_store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="Title">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Active Hours</label>
-                        <input type="text" name="last_name" class="form-control" placeholder="Active Hours">
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Time Duration</label>
-                        <input type="text" name="phone_number" class="form-control" placeholder="Time Duration">
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Description</label>
-                        <textarea type="email" rows="3" name="email" class="form-control" placeholder="Description"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="exampleFormControlFile1">Work Image </label>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="featuredImage">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <img  class="rounded-circle" src="fontend/images/apon.jpg" alt="about image" style="height:120px;width:120px;">
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                  </div>
-                </form>
-              </div>
+              
             </div>
           </div>
 

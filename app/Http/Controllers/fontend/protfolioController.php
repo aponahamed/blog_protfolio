@@ -4,6 +4,20 @@ namespace App\Http\Controllers\fontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\homeView;
+use App\Models\personal;
+use App\Models\homeSkills;
+use App\Models\homeWorks;
+use App\Models\General;
+use App\Models\About;
+use App\Models\language;
+use App\Models\experience;
+use App\Models\certification;
+use App\Models\Education;
+use App\Models\expertise;
+use App\Models\protfolioLinks;
+use App\Models\contact;
+use App\Models\protfolio;
 
 class protfolioController extends Controller
 {
@@ -14,7 +28,12 @@ class protfolioController extends Controller
      */
     public function protfolio()
     {
-        return view('fontend.protfolio');
+        $user_id = 1;
+        $data['title'] = "Personal Blog Protfolio Protfolio";
+        $data['personal'] = personal::where('user_id','=',$user_id)->firstOrFail();
+        $data['General'] = General::where('user_id','=',$user_id)->firstOrFail();
+        $data['protfolio'] = protfolio::where('user_id','=',$user_id)->firstOrFail();
+        return view('fontend.protfolio',$data);
     }
 
     /**

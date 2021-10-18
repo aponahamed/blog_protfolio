@@ -13,3 +13,31 @@
   <link type="text/css" href="{{asset('fontend/css/style.css')}}" rel="stylesheet"?v=2.1/>
  <!-- CSS only -->
 <!-- Google Fonts -->
+<style>
+     /* rating */
+.rating-css div {
+    color: #ffe400;
+    font-family: sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .rating-css input {
+    display: none;
+  }
+  .rating-css input + label {
+    font-size: 32px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+  }
+  .rating-css input:checked + label ~ label {
+    color: #b4afaf;
+  }
+  .rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3s ease;
+  }
+  .checked{
+    color:#FFBA01;
+  }
+/* End of Star Rating */
+</style>

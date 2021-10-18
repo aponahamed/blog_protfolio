@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\adminBlog;
 use App\Models\category;
+use App\Models\personal;
 use Illuminate\Support\Str;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use Image;
 use File;
@@ -21,6 +24,8 @@ class adminblogController extends Controller
     {
         $data['data'] = adminblog::all();
         $data['title'] = 'Admin Blog Post';
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         return view('backend.adminblog',$data);
     }
 
@@ -33,6 +38,8 @@ class adminblogController extends Controller
     {
         $data['data'] = category::all();
         $data['title'] = 'Blog Post Create';
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         return view('backend/blogcreate',$data);
     }
 
@@ -44,10 +51,11 @@ class adminblogController extends Controller
      */
     public function store(Request $request)
     {
+ 
         $slug_title = $request->input('post_title');
        
         $adminBlog = new adminBlog;
-        $adminBlog->user_id = '123';
+        $adminBlog->user_id = Auth::user()->id;
         $adminBlog->post_title = $request->input('post_title');
         $slug = Str::slug($slug_title, "-");
 
@@ -93,7 +101,8 @@ class adminblogController extends Controller
      */
     public function edit($post_slug)
     {
-       
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['data'] = adminblog::where('post_slug', '=', $post_slug)->firstOrFail();
         $data['data_c'] = category::all();
         $data['title'] = 'Blog Post Edit';
@@ -152,14 +161,5 @@ class adminblogController extends Controller
         return redirect()->back()->with('delete','Blog Post Deleted Successfully');
     }
 
-    // public function slug(){
-    //     $title = "This is 1st Slug";
-    //     return adminBlog::create([
-    //         'post_title' => $title,
-    //         'meta_title' => 'hello',
-    //         'user_id' => 1,
-    //     ]);
-    //     return $title;
-    // }
 
 }

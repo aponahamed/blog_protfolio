@@ -44,7 +44,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Post Description</label>
-                    <textarea type="text" name="post_description" rows="5" class="form-control" id="exampleInputPassword1"></textarea>
+                    <textarea id="summernote" type="text" name="post_description" rows="5" class="form-control" id="exampleInputPassword1"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Meta Title</label>
@@ -102,7 +102,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="exampleInputPassword1">Description</label>
-                        <textarea type="email" rows="3" name="email" class="form-control" placeholder="Description"></textarea>
+                        <textarea id="summernote" type="email" rows="3" name="email" class="form-control" placeholder="Description"></textarea>
                       </div>
                     </div>
                   </div>

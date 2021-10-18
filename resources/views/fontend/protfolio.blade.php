@@ -1,6 +1,6 @@
 @extends('fontend.layouts.master')
 
-
+@section('title',$title)
 @section('content')
   <style type="text/css">
       #showcase{
@@ -30,10 +30,12 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 mt-5">
-          <div class="info-book">
-            <h2 class="text-left my-3 display-4" style="color:#26a356;">Work Gallery</h2>
-            <p class="text-left lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, veniam, voluptate! Beatae magni, impedit distinctio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, veniam, voluptate! Beatae magni, impedit distinctio.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, veniam, voluptate! Beatae magni, impedit distinctio.</p>
-          </div>
+          @if($protfolio->protfolio_banner_status == '1')
+            <div class="info-book">
+              <h2 class="text-left my-3 display-4" style="color:#26a356;">{{$protfolio->protfolio_banner_title}}</h2>
+              <p class="text-left lead">{{$protfolio->protfolio_banner_description}}</p>
+            </div>
+          @endif
         </div>
         <div class="col-md-12 my-5">
           <div class="row">

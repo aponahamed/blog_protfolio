@@ -4,6 +4,19 @@ namespace App\Http\Controllers\fontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\homeView;
+use App\Models\personal;
+use App\Models\homeSkills;
+use App\Models\homeWorks;
+use App\Models\General;
+use App\Models\About;
+use App\Models\language;
+use App\Models\experience;
+use App\Models\certification;
+use App\Models\Education;
+use App\Models\expertise;
+use App\Models\protfolioLinks;
+use App\Models\contact;
 
 class contactController extends Controller
 {
@@ -14,7 +27,12 @@ class contactController extends Controller
      */
     public function contact()
     {
-        return view('fontend.contact');
+        $user_id = 1;
+        $data['title'] = "Personal Blog Protfolio contacts";
+        $data['personal'] = personal::where('user_id','=',$user_id)->firstOrFail();
+        $data['General'] = General::where('user_id','=',$user_id)->firstOrFail();
+        $data['contact'] = contact::where('user_id','=',$user_id)->firstOrFail();
+        return view('fontend.contact',$data);
     }
 
     /**

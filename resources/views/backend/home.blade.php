@@ -44,79 +44,50 @@
             @endif
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Home Element</h5>
-              </div>
-              <div class="card-body">
-                <form action="{{route('blog_store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Title One</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="Title One">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Title Two</label>
-                        <input type="text" name="last_name" class="form-control" placeholder="Title Two">
-                      </div>
-                    </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h5 class="m-0">Home Baner Section</h5>
                   </div>
-
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Description Title</label>
-                        <input type="text" name="phone_number" class="form-control" placeholder="Phone Number">
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Description</label>
-                        <textarea type="email" rows="3" name="email" class="form-control" placeholder="Email"></textarea>
-                      </div>
-                    </div>
+                  <div class="col-md-3 text-right">
+                    @if($homeView->banner_status == '0')
+                    <a href="{{'/admin/home/hideShow/'.'banner_status'}}" class="btn btn-sm btn-danger px-3">Show</a>
+                    @elseif($homeView->banner_status == '1')
+                    <a href="{{'/admin/home/hideShow/'.'banner_status'}}" class="btn btn-sm btn-primary px-3">Hide</a>
+                    @endif
                   </div>
-                  <div class="row">
-                    <div class="col-md-12 form-group">
-                      <label for="exampleFormControlFile1">Work Image </label>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="featuredImage">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <img  class="rounded-circle" src="fontend/images/apon.jpg" alt="about image" style="height:120px;width:120px;">
-                      </div>
-                    </div>
+                  <div class="col-md-12 my-3 font-italic">
+                    <p><b>Note:</b> Use the border-radius property to add rounded corners to an image. 50% will make the image circular.</p>
                   </div>
-                  <div>
-                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                  <div class="col-md-12 text-left">
+                    <a href="{{route('homeBanner')}}" class="btn btn-sm btn-success px-4">Update</a>
                   </div>
-                </form>
+                </div>
+                
               </div>
             </div>
 
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Motivation</h5>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h5 class="m-0">Home Motivation</h5>
+                  </div>
+                  <div class="col-md-3 text-right">
+                    @if($homeView->motivation_status == '0')
+                      <a href="{{'/admin/home/hideShow/'.'motivation_status'}}" class="btn btn-sm btn-danger px-3">Show</a>
+                    @elseif($homeView->motivation_status == '1')
+                      <a href="{{'/admin/home/hideShow/'.'motivation_status'}}" class="btn btn-sm btn-primary px-3">Hide</a>
+                    @endif
+                  </div>
+                  <div class="col-md-12 my-3 font-italic">
+                    <p><b>Note:</b> Home Motivation Use the border-radius property to add rounded corners to an image. 50% will make the image circular.</p>
+                  </div>
+                  <div class="col-md-12 text-left">
+                    <a href="{{route('homeMotivation')}}" class="btn btn-sm btn-success px-4">Update</a>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <form action="{{route('blog_store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Motivation</label>
-                        <textarea type="text" rows="3" name="post_title" class="form-control" ></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
-                    </div>
-                </form>
-              </div>
+
             </div>
           </div>
 
@@ -124,73 +95,48 @@
           <div class="col-lg-6">
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">My Skills</h5>
-              </div>
-              <div class="card-body">
-              <form action="{{route('blog_store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" name="protfolio_link" class="form-control" placeholder="Title">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Percentage</label>
-                        <input type="text" name="whats_app_link" rows="5" name class="form-control" placeholder="Percentage">
-                      </div>
-                    </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h5 class="m-0">My Skills</h5>
                   </div>
-                  <div>
-                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                  <div class="col-md-3 text-right">
+                    @if($homeView->skill_status == '0')
+                      <a href="{{'/admin/home/hideShow/'.'skill_status'}}" class="btn btn-sm btn-danger px-3">Show</a>
+                    @elseif($homeView->skill_status == '1')
+                      <a href="{{'/admin/home/hideShow/'.'skill_status'}}" class="btn btn-sm btn-primary px-3">Hide</a>
+                    @endif
                   </div>
-                </form>
+                  <div class="col-md-12 my-3 font-italic">
+                    <p><b>Note:</b> My Skills Use the border-radius property to add rounded corners to an image. 50% will make the image circular.</p>
+                  </div>
+                  <div class="col-md-12 text-left">
+                    <a href="{{route('homeSkill')}}" class="btn btn-sm btn-success px-4">Insert</a>
+                  </div>
+                </div>
               </div>
             </div>
 
 
             <div class="card card-primary card-outline">
               <div class="card-header">
-                <h5 class="m-0">Works Sample</h5>
-              </div>
-              <div class="card-body">
-                <form action="{{route('blog_store')}}" method="POST" enctype="multipart/form-data">
-                  @csrf
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input type="text" name="post_title" class="form-control" pleceholder="Title">
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Sub Title</label>
-                        <input type="text" name="post_title" class="form-control" pleceholder="Sub Title">
-                      </div>
-                    </div>
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label for="exampleFormControlFile1">Featured Image</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="featuredImage">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <img class="rounded-circle" src="fontend/images/apon.jpg" alt="University Logo" style="height:80px;width:80px;">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h5 class="m-0">My Works Shocase</h5>
                   </div>
-                  <div>
-                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                  <div class="col-md-3 text-right">
+                    @if($homeView->works_status == '0')
+                      <a href="{{'/admin/home/hideShow/'.'works_status'}}" class="btn btn-sm btn-danger px-3">Show</a>
+                    @elseif($homeView->works_status == '1')
+                      <a href="{{'/admin/home/hideShow/'.'works_status'}}" class="btn btn-sm btn-primary px-3">Hide</a>
+                    @endif
                   </div>
-                </form>
+                  <div class="col-md-12 my-3 font-italic">
+                    <p><b>Note:</b> My Works Shocase Use the border-radius property to add rounded corners to an image. 50% will make the image circular.</p>
+                  </div>
+                  <div class="col-md-12 text-left">
+                    <a href="{{route('homeWorks')}}" class="btn btn-sm btn-success px-4">Insert</a>
+                  </div>
+                </div>
               </div>
             </div>
         </div>

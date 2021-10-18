@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\personal;
+use App\Models\General;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,7 +19,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-        return view('auth.login');
+        $user_id = 1;
+        $data['personal'] = personal::where('user_id','=',$user_id)->firstOrFail();
+        $data['General'] = General::where('user_id','=',$user_id)->firstOrFail();
+        return view('auth.login',$data);
     }
 
     /**
