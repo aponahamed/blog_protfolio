@@ -22,6 +22,7 @@ class CreateContactsTable extends Migration
             $table->string('time_duration')->nullable();
             $table->string('description')->nullable();
             $table->string('contactFeatureImage')->nullable();
+            $table->string('contacts_banner_status')->nullable();
             $table->timestamps();
         });
     }

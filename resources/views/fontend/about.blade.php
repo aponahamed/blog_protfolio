@@ -21,7 +21,7 @@
     @if($About->about_banner_status == '1')
       <div class="row">
         <div class="col-md-5 mt-5 ml-5">
-          <img src="{{asset('gallery/'.$About->aboutBannerImage)}}" class="img-fluid ml-5" >
+          <img src="{{asset('gallery/'.$About->aboutBannerImage)}}" class="img-fluid ml-5" alt="{{$About->aboutBannerImage}}" >
         </div>
         <div class="col-md-5 mt-5">
           <div class="my-5">
@@ -99,7 +99,7 @@
               <div class="carousel-item {{$key == 0 ? 'active' : '' }}">
                 <div class="row text-center">
                   <div class="text-center col-md-12 mb-2">
-                    <img class="w-20" style="width:180px;height:180px;" src="{{asset('gallery/'.$value['aboutExperienceImage'])}}" alt="First slide">
+                    <img class="w-20" style="width:180px;height:180px;" src="{{asset('gallery/'.$value['aboutExperienceImage'])}}" alt="{{$value['aboutExperienceImage']}}">
                   </div>
                   <div class="col-md-12 text-center">
                     <h5>Web Desiner</h5>
@@ -144,7 +144,7 @@
         <!-- inturen learn part -1 -->
         @foreach($certification as $value)
         <div class="col-md-3">
-          <img src="{{asset('gallery/'.$value['aboutCertificationImage'])}}" style="height: 120px; width: 140px;border-radius: 20px;">
+          <img src="{{asset('gallery/'.$value['aboutCertificationImage'])}}" style="height: 120px; width: 140px;border-radius: 20px;" alt="$value['aboutCertificationImage']">
         </div>        
         <div class="col-md-9">
           <h4><span style="color:#26A356;">{{$value['institute_title']}}</span></h4>
@@ -180,7 +180,7 @@
             <div class="card" id="card1">
               <div class="card-body">
                 <div class="text-center" style="margin-top:-60px">
-                  <img style=" height:120px; width:120px;" class="img-fluid rounded-circle" src="{{asset('gallery/'.$value['aboutEducationImage'])}}" alt="Susan Williams">
+                  <img style=" height:120px; width:120px;" class="img-fluid rounded-circle" src="{{asset('gallery/'.$value['aboutEducationImage'])}}" alt="{{$value['aboutEducationImage']}}">
                 </div>
                 <div class="my-2 text-center">
                   <h5><b>{{$value['university_name']}}</b></h5>

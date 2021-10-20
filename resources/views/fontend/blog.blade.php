@@ -20,14 +20,14 @@
 
             @foreach($data as $value)
             <div class="col-md-4 mb-3">
-              <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="width:100%;height:220px" alt="featuredImage">
+              <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="width:100%;height:220px" alt="{{$value['featuredImage']}}">
             </div>
             <div class="col-md-8 mb-3">
               <div class="card" style="width: 100%;border: 0;">
                 <div class=" m-0">
                   <div class="">
                     <h5><b><a style="color:#26A356" href="{{'/blog/'.$value['post_slug']}}">{{$value['post_title']}}</a></b></h5>
-                    <span>
+                    <!-- <span>
                       @if($value['rattings']>1)
                         @php $final = $value['rattings']/$value['count_rattings']; $rattings = number_format($final)  @endphp
                       @else
@@ -45,7 +45,7 @@
                       @else
                         No Reviews
                       @endif
-                    </span>
+                    </span> -->
                       <span><b>Author: </b>Apon Ahamed <b>Date:</b>{{$value['create_date']}}</span>
                   </div>
                   <div>
@@ -117,12 +117,12 @@
               @foreach($recent_post as $value)
                 <div class="col-md-6">
                   <div>
-                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="Card image cap">
+                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="{{$value['featuredImage']}}">
                   </div>
                   <div class="mb-2">
                     <p style="font-size:14px;color:#26A356"><b><a style="color:#26A356" href="{{'/blog/'.$value['post_slug']}}">{{$value['post_title']}}</a></b></p>
                     <div style="margin-top:-15px;font-size: 10px;">
-                    <span>
+                    <!-- <span>
                       @if($value['rattings']>1)
                         @php $final = $value['rattings']/$value['count_rattings']; $rattings = number_format($final)  @endphp
                       @else
@@ -139,7 +139,7 @@
                       @else
                         No Reviews
                       @endif
-                    </span>
+                    </span> -->
                       <span><b>Author: </b>Apon Ahamed <b>Date:</b>{{$value['create_date']}}</span>
                     </div>
                   </div>
@@ -162,12 +162,12 @@
               @foreach($populer_post as $value)
                 <div class="col-md-6">
                   <div>
-                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="Card image cap">
+                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="{{$value['featuredImage']}}">
                   </div>
                   <div class="mb-2">
                     <p style="font-size:14px;color:#26A356"><b><a style="color:#26A356" href="{{'/blog/'.$value['post_slug']}}">{{$value['post_title']}}</a></b></p>
                     <div style="margin-top:-15px;font-size: 10px;">
-                    <span>
+                    <!-- <span>
                       @if($value['rattings']>1)
                         @php $final = $value['rattings']/$value['count_rattings']; $rattings = number_format($final)  @endphp
                       @else
@@ -184,7 +184,7 @@
                       @else
                         No Reviews
                       @endif
-                    </span>
+                    </span> -->
                       <span><b>Author: </b>Apon Ahamed <b>Date:</b>{{$value['create_date']}}</span>
                     </div>
                   </div>

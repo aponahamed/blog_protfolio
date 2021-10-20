@@ -134,7 +134,7 @@
           </form>
         </div>
         <div class="col-md-3 align-self-center d-none d-lg-block">
-          <img src="{{asset('gallery/'.$contact->contactFeatureImage)}}" class="img-fluid rounded-circle" alt="logo">
+          <img src="{{asset('gallery/'.$contact->contactFeatureImage)}}" class="img-fluid rounded-circle" alt="{{$contact->contactFeatureImage}}">
         </div>
         
       </div>

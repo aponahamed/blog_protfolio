@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\fontend;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\personal;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
@@ -56,8 +57,10 @@ class SubscriberController extends Controller
      */
     public function show()
     {
+        $id = Auth::user()->id;
         $data['title'] = "Category Update";
         $data['subscriber'] = Subscriber::all();
+        $data['personalView'] = personal::where('id','=',$id)->first();
         return view('backend.subscriberShow',$data);
     }
 

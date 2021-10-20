@@ -16,7 +16,7 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div>
-                        <img src="{{asset('gallery/'.$banner->homeBannerImage)}}" class="img-fluid" style="max-height:600px;">
+                        <img src="{{asset('gallery/'.$banner->homeBannerImage)}}" alt="{{$banner->homeBannerImage}}" class="img-fluid" style="max-height:600px;">
                       </div>
                       
                     </div>
@@ -79,7 +79,7 @@
               <div class="card">
                 <div class="card-body p-4" style="background: #26A356; border-radius: 5px">
                   <span class="count" style="font-size: 32px;font-weight: 500" data-count="80">{{$value['skill_percentage']}}%</span><br>
-                  <img src="{{asset('gallery/'.$value['homeSkillImage'])}}" style="height:45px;width: 45px;" class="img-fluid" alt="counter icon">
+                  <img src="{{asset('gallery/'.$value['homeSkillImage'])}}" style="height:45px;width: 45px;" class="img-fluid" alt="{{$value['homeSkillImage']}}">
                   <p style="font-size: 18px;font-weight: 500;margin-top: 15px;">{{$value['skill_title']}}</p>
                 </div>
               </div>
@@ -107,21 +107,21 @@
         @foreach($homeWorks as $value)
         <div class="single-book">
           <a href="#" class="single-book__img">
-            <img src="{{asset('gallery/'.$value['homeWorksImage'])}}" alt="single book and cd">
+            <img src="{{asset('gallery/'.$value['homeWorksImage'])}}" alt="{{$value['homeWorksImage']}}">
             <div class="single-book_download">
-              <img src="{{asset('fontend/images/download.svg')}}" alt="book image">
+              <img src="{{asset('fontend/images/download.svg')}}" alt="download.svg">
             </div>
           </a>
           <h4 class="single-book__title">{{$value['works_title']}}</h4>
           <span class="single-book__price">{{$value['works_sub_title']}}</span>
           <!-- star rating -->
-          <div class="rating">
+          <!-- <div class="rating">
             <span>&#9734;</span>
             <span>&#9734;</span>
             <span>&#9734;</span>
             <span>&#9734;</span>
             <span>&#9734;</span>
-          </div>
+          </div> -->
           <!-- star rating end -->
         </div>
         @endforeach

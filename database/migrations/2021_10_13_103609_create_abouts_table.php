@@ -23,6 +23,16 @@ class CreateAboutsTable extends Migration
             $table->String('about_banner_objectives')->nullable();
             $table->String('about_banner_declaration')->nullable();
             $table->String('aboutBannerImage')->nullable();
+            $table->String('about_banner_status')->nullable();
+            $table->String('about_language_status')->nullable();
+            $table->String('about_experience_status')->nullable();
+            $table->String('about_traning_status')->nullable();
+            $table->String('about_education_status')->nullable();
+            $table->String('about_objectives_status')->nullable();
+            $table->String('about_expertice_status')->nullable();
+            $table->String('about_links_status')->nullable();
+            $table->String('about_personal_status')->nullable();
+            $table->String('about_declarations_status')->nullable();
             $table->timestamps();
         });
     }

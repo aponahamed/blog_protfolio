@@ -47,7 +47,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Post Description</label>
-                    <textarea id="summernote" type="text" name="post_description" rows="5" class="form-control">{{$data->post_description}}</textarea>
+                    <textarea id="my-editor" type="text" name="post_description" rows="5" class="form-control">{{$data->post_description}}</textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Meta Title</label>
@@ -105,4 +105,14 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+CKEDITOR.replace('my-editor',{
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+});
+</script>
 @endsection
+

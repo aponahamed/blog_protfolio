@@ -228,3 +228,11 @@ Route::POST('/admin/contact/banner/update/{id}', [contactsController::class, 'co
 // Profile Contact  route
 Route::POST('/admin/protfolio/banner/update/{id}', [protfoliosController::class, 'protfolioBannerUpdate'])->middleware(['auth'])->name('protfolioBannerUpdate');
 Route::get('/admin/protfolio/showHide/{status}', [protfoliosController::class, 'showHide'])->middleware(['auth'])->name('showHide');
+
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+    Route::post('ckeditor/upload',[aboutController::class, 'ckeditorUpload'])->name('ckeditor.upload');
+    

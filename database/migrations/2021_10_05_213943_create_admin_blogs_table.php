@@ -25,6 +25,9 @@ class CreateAdminBlogsTable extends Migration
             $table->string('create_date');
             $table->string('category_title');
             $table->string('post_tag');
+            $table->string('click');
+            $table->string('rattings');
+            $table->string('count_rattings');
             $table->string('featuredImage')->nullable();
             $table->timestamps();
         });

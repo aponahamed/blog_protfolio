@@ -16,11 +16,11 @@
     <div class="row my-5">
       <div class="col-md-9 my-5 text-center">
         <div class="mt-4 ml-5 mb-5 text-left">
-          <h2 class="mb-4" style="font-size: 38px;color:#26A356;">{{$data->post_title}}</h2>
+          <h2 class="mb-4" style="font-size: 38px;color:#26A356;"><a style="color:#26A356" href="{{'/blog/'.$data->post_title}}">{{$data->post_title}}</a></h2>
           <div>
             <span class="font-italic">
               <small>
-                <span>
+                <!-- <span>
                   @php $rattings = number_format($rattings_avg)  @endphp
                   @for($i = 1; $i<= $rattings; $i++)
                   <i class="fa fa-star checked"></i>
@@ -35,12 +35,12 @@
                   @else
                    No Reviews
                   @endif
-                </span><br>
+                </span><br> -->
                 <b>Author: </b>Apon Ahamed <br>
                 <b>Date:</b> 12/12/21
               </small>
             </span><br>
-            <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$data->featuredImage)}}" style="" alt="Card image cap">
+            <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$data->featuredImage)}}" style="" alt="{{$data->featuredImage}}">
           </div>
           <p class="font-italic my-3">{{strip_tags($data->post_description)}}</p>
         </div>
@@ -58,7 +58,7 @@
                <div class="col-md-11">
                  <p><b>{{$value->name}}</b><br>
                  <small>
-                    <span>
+                    <!-- <span>
                       @php $rattings = $value->rattings  @endphp
                         @for($i = 1; $i<= $rattings; $i++)
                           <i class="fa fa-star checked"></i>
@@ -72,7 +72,7 @@
                         @else
                           No Reviews
                         @endif
-                    </span><br>
+                    </span><br> -->
                     {{$value->message}}
                 </small></p>
                </div>
@@ -83,7 +83,7 @@
             <p style="font-size:20px;color:#26A356;"><b>Share your Reviews</b></p>
               <form action="{{route('rattings')}}" method="POST" enctype="multipart/form-data"> 
                 @csrf
-                <div class="form-group text-left">
+                <!-- <div class="form-group text-left">
                   <div class="rating-css">
                     <div class="star-icon">
                         <input type="radio" value="1" name="rattings" checked id="rating1">
@@ -98,7 +98,7 @@
                         <label for="rating5" class="fa fa-star"></label>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                   <input type="hidden" class="form-control" name="post_slug" value="{{$data->post_slug}}">
@@ -164,12 +164,12 @@
               @foreach($populer_post as $value)
                 <div class="col-md-6">
                   <div>
-                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="Card image cap">
+                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="{{$value['featuredImage']}}">
                   </div>
                   <div class="mb-2">
-                    <p style="font-size:14px;color:#26A356"><b>{{$value['post_title']}}</b></p>
+                    <p style="font-size:14px;color:#26A356"><b><a style="color:#26A356" href="{{'/blog/'.$value['post_slug']}}">{{$value['post_title']}}</a></b></p>
                     <div style="margin-top:-15px;">
-                      <span style="font-size: 10px;">
+                      <!-- <span style="font-size: 10px;">
                         @php 
                           $rattings = $value->rattings;
                         @endphp
@@ -185,7 +185,7 @@
                         @else
                           No Reviews
                         @endif
-                    </span><br>
+                    </span><br> -->
                       <span style="font-size: 11px;"><b>Author: </b>Apon Ahamed <b>Date:</b>{{$value['create_date']}}</span>
                     </div>
                   </div>
@@ -212,12 +212,12 @@
                 @foreach($relatedPost as $value)
                 <div class="col-md-6">
                   <div>
-                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="Card image cap">
+                    <img class="img-fluid" src="{{asset('upload/post/featuredImage/'.$value['featuredImage'])}}" style="height:120px; width:100%" alt="{{$value['featuredImage']}}">
                   </div>
                   <div class="mb-2">
-                    <p style="font-size:14px;color:#26A356"><b>{{$value['post_title']}}</b></p>
+                    <p style="font-size:14px;color:#26A356"><b><a style="color:#26A356" href="{{'/blog/'.$value['post_slug']}}">{{$value['post_title']}}</a></b></p>
                     <div style="margin-top:-15px;font-size: 11px;">
-                    <span>
+                    <!-- <span>
                       @if($value['rattings']>1)
                         @php $final = $value['rattings']/$value['count_rattings']; $rattings = number_format($final)  @endphp
                       @else
@@ -234,7 +234,7 @@
                       @else
                         No Reviews
                       @endif
-                    </span>
+                    </span> -->
                       <span><b>Author: </b>Apon Ahamed <b>Date:</b>{{$value['create_date']}}</span>
                     </div>
                   </div>

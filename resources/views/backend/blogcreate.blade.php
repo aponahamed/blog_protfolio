@@ -44,7 +44,7 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Post Description</label>
-                    <textarea id="summernote" type="text" name="post_description" rows="5" class="form-control" id="exampleInputPassword1"></textarea>
+                    <textarea id="my-editor" type="text" name="post_description" rows="5" class="form-control"></textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Meta Title</label>
@@ -114,6 +114,17 @@
             </div>
           </div>
           <!-- /.col-md-6 -->
+          <div class="col-md-6">
+          <div class="input-group">
+   <span class="input-group-btn">
+     <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+       <i class="fa fa-picture-o"></i> Choose
+     </a>
+   </span>
+   <input id="thumbnail" class="form-control" type="text" name="filepath">
+ </div>
+ <img id="holder" style="margin-top:15px;max-height:100px;">
+          </div>
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -121,6 +132,14 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-
+  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script>
+CKEDITOR.replace('my-editor',{
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{csrf_token()}}',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{csrf_token()}}'
+});
+</script>
 @endsection
+

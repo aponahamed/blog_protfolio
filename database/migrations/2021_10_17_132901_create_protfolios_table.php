@@ -18,6 +18,7 @@ class CreateProtfoliosTable extends Migration
             $table->string('user_id');
             $table->string('protfolio_banner_title')->nullable();
             $table->string('protfolio_banner_description')->nullable();
+            $table->string('protfolio_banner_status')->nullable();
             $table->timestamps();
         });
     }

@@ -25,6 +25,7 @@ class TagViewController extends Controller
         $user_id = 1;
         $data['personal'] = personal::where('user_id','=',$user_id)->firstOrFail();
         $data['General'] = General::where('user_id','=',$user_id)->firstOrFail();
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['post_tag'] = $value;
         $data['category'] = category::all();
         $data['tagView'] = TagView::all();
@@ -41,6 +42,8 @@ class TagViewController extends Controller
      */
     public function insert()
     {
+        $id = Auth::user()->id;
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['title'] = "Common Tag Add";
         return view('backend/Tag/tagviewinsert',$data);
     }
@@ -70,7 +73,9 @@ class TagViewController extends Controller
      */
     public function show()
     {
+        $id = Auth::user()->id;
         $data['data'] = TagView::all();
+        $data['personalView'] = personal::where('id','=',$id)->first();
         $data['title'] = "Tags Show";
         return view('backend/Tag/tagviewshow',$data);
     }
